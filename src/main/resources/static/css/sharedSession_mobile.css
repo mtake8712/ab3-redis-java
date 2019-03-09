@@ -1,0 +1,19 @@
+tr > th:first-child{
+    text-align: center;
+}
+
+tr > th:nth-child(2){
+    text-align: center;
+}
+
+tr > th:nth-child(3){
+    text-align: center;
+}
+
+tr > td:first-child{
+    text-align: center;
+}
+
+tr > td:nth-child(2){
+    text-align: center;
+}

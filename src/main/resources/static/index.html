@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <link rel="stylesheet" href="static/css/flex.css" media="(min-width: 1280px)">
+    <link rel="stylesheet" href="static/css/flex_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
+    <link rel="stylesheet" href="static/css/flex_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
+    <link rel="stylesheet" href="static/css/index.css" media="(min-width: 1280px)">
+    <link rel="stylesheet" href="static/css/index_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
+    <link rel="stylesheet" href="static/css/index_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
+    <script type="text/javascript" src="webjars/jquery/jquery.js"></script>
+</head>
+<body>
+<h1>Hello! ElastiCache Redis sample!</h1>
+<div id="flex-container">
+    <div class="flex-item-1">
+      <h2>Call Shared Session.</h2>
+      <form id="form-shared-session" method="get">
+          <label for="containerGroup">実行コンテナ</label>
+          <input id="containerGroup" name="containerGroup" placeholder="1" value="1"/>
+        <button id="sharedSessionButton" name="sharedSessionButton" class="main-button" onclick="submitCreateUrl()">Shared Session</button>
+      </form>
+      <br>
+    </div>
+    <div class="flex-item-2">
+      <h2>Session invalidate.</h2>
+      <form id="form-invalidate-session" action="/invalidateSession" method="get">
+        <button id="invalidateSessionButton" name="invalidateSessionButton" class="main-button" type="submit">Invalidate Session</button>
+      </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function submitCreateUrl() {
+        var test = $("#containerId").val();
+       $("#form-shared-session").attr("action", "/" + $("#containerGroup").val());
+       $("#form-shared-session").submit();
+    }
+</script>
+</html>

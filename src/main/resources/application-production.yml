@@ -1,0 +1,4 @@
+spring:
+  redis:
+    host: ${REDIS_CLUSTER_ENDPOINT:localhost}
+    port: ${REDIS_CLUSTER_PORT:6379}
