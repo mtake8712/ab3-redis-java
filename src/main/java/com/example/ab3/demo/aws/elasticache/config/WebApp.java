@@ -1,4 +1,4 @@
-package org.debugroom.mynavi.sample.aws.elasticache.config;
+package com.example.ab3.demo.aws.elasticache.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

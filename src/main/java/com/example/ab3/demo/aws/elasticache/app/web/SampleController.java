@@ -1,4 +1,4 @@
-package org.debugroom.mynavi.sample.aws.elasticache.app.web;
+package com.example.ab3.demo.aws.elasticache.app.web;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.debugroom.mynavi.sample.aws.elasticache.app.web.model.SampleSession;
+import com.example.ab3.demo.aws.elasticache.app.web.model.SampleSession;
 
 @Controller
 public class SampleController {

@@ -1,4 +1,4 @@
-package org.debugroom.mynavi.sample.aws.elasticache.app.web.model;
+package com.example.ab3.demo.aws.elasticache.app.web.model;
 
 import java.io.Serializable;
 import java.util.Date;
