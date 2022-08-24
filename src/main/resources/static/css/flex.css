@@ -10,6 +10,8 @@ body{
     display : -moz-flex;
     display : flex;
     justify-content: center;
+    
+    margin: 0 auto;
 }
 
 #flex-container .flex-item-1{
@@ -17,7 +19,9 @@ body{
     -webkit-flex : 1 0 600px;
     -moz-flex : 1 0 600px;
     flex : 1 0 600px;
-    text-align: right;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 #flex-container .flex-item-2{
@@ -25,6 +29,9 @@ body{
     -webkit-flex : 1 0 600px;
     -moz-flex : 1 0 600px;
     flex : 1 0 600px;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 h1 {
@@ -66,11 +73,13 @@ tbody > tr:nth-child(odd) > td{
 }
 
 p{
-    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form {
-    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input {

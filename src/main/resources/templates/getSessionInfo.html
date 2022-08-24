@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ElastiCache Redis demo</title>
+    <link rel="stylesheet" href="static/css/flex.css" media="(min-width: 1280px)">
+    <link rel="stylesheet" href="static/css/flex_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
+    <link rel="stylesheet" href="static/css/flex_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
+    <link rel="stylesheet" href="static/css/sharedSession.css" media="(min-width: 320px) and (max-width: 1279px)">
+    <link rel="stylesheet" href="static/css/sharedSession_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
+    <link rel="stylesheet" href="static/css/sharedSession_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
+    <script type="text/javascript" src="webjars/jquery/jquery.js"></script>
+</head>
+<body>
+<h1>ElastiCache Redis demo</h1>
+
+<div class="flex-item-1">
+<h2>Got Session data.</h2>
+<table>
+    <thead>
+    <tr>
+        <th>インスタンス</th>
+        <th>名前</th>
+        <th>保険商品</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${sampleSession.getHost()}"></td>
+        <td th:text="${sampleSession.getName()}"></td>
+        <td th:text="${sampleSession.getProduct()}"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="flex-item-2">
+  <form id="form-modoru" action="/" method="get">
+    <button id="modoru" name="modoru" class="main-button" type="submit">戻る</button>
+  </form>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    function submitCreateUrl() {
+        var test = $("#instanceId").val();
+       $("#form-shared-session").attr("action", "/" + $("#instanceGroup").val());
+       $("#form-shared-session").submit();
+    }
+</script>
+</html>

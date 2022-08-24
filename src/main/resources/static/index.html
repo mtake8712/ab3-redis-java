@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index</title>
+    <title>ElastiCache Redis demo</title>
     <link rel="stylesheet" href="static/css/flex.css" media="(min-width: 1280px)">
     <link rel="stylesheet" href="static/css/flex_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
     <link rel="stylesheet" href="static/css/flex_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
@@ -14,30 +14,60 @@
     <script type="text/javascript" src="webjars/jquery/jquery.js"></script>
 </head>
 <body>
-<h1>Hello! ElastiCache Redis sample!</h1>
-<div id="flex-container">
-    <div class="flex-item-1">
-      <h2>Call Shared Session.</h2>
-      <form id="form-shared-session" method="get">
-          <label for="containerGroup">実行コンテナ</label>
-          <input id="containerGroup" name="containerGroup" placeholder="1" value="1"/>
-        <button id="sharedSessionButton" name="sharedSessionButton" class="main-button" onclick="submitCreateUrl()">Shared Session</button>
+<h1>ElastiCache Redis demo</h1>
+<div id="flex-instance">
+    <div class="flex-container">
+      <h2>セッション情報の保存</h2>
+      <form id="form-shared-session" method="post" th:object="${session}">
+      	<p>
+          <label for="instanceGroup">実行インスタンス: </label>
+          <select id="instanceGroup" name="instanceGroup">
+          	<option> 1 </option>
+          	<option> 2 </option>
+          </select>
+        </p>
+          
+         <p>
+          <label for="name">顧客: </label>
+          <select id="name" name="name">
+          	<option> takeyama </option>
+          	<option> mitsumasa </option>
+          </select>
+         </p>
+         
+         <p>
+          <label for="product">保険商品: </label>
+          <select id="product" name="product">
+          	<option> 医療保険 </option>
+          	<option> 終身保険 </option>
+          	<option> 介護保険 </option>
+          </select>
+         </p>
+        <button id="sharedSessionButton" name="sharedSessionButton" class="main-button" onclick="submitCreateUrl()" type="submit">保存</button>
       </form>
       <br>
     </div>
-    <div class="flex-item-2">
-      <h2>Session invalidate.</h2>
+    <div style="display:inline-flex">
       <form id="form-invalidate-session" action="/invalidateSession" method="get">
-        <button id="invalidateSessionButton" name="invalidateSessionButton" class="main-button" type="submit">Invalidate Session</button>
+        <button id="invalidateSessionButton" name="invalidateSessionButton" class="main-button" type="submit">振直し</button>
+      </form>
+      <form id="form-get-session" th:object="${session}" method="post">
+        <button id="getSessionInfoButton" name="getSessionInfoButton" class="main-button" onclick="submitUrl()" type="submit">照会</button>
       </form>
     </div>
+
 </div>
 </body>
 <script type="text/javascript">
     function submitCreateUrl() {
-        var test = $("#containerId").val();
-       $("#form-shared-session").attr("action", "/" + $("#containerGroup").val());
+        var test = $("#instanceId").val();
+       $("#form-shared-session").attr("action", "/" + $("#instanceGroup").val());
        $("#form-shared-session").submit();
     }
+    function submitUrl() {
+       $("#form-get-session").attr("action", "/getSessionInfo");
+       $("#form-get-session").submit();
+    }
 </script>
+
 </html>

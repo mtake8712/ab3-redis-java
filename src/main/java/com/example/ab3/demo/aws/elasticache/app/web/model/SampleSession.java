@@ -21,5 +21,8 @@ public class SampleSession implements Serializable {
 
     private String host;
     private Date lastUpdatedAt;
+    private String name;
+    private String product;
+    private String sessionId;
 
 }
